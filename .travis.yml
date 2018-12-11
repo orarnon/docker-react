@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t orarnon/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -it orarnon/docker-react npm run test -- --coverage
